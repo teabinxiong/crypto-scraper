@@ -11,25 +11,31 @@ namespace Crypto.Scraper.ProducerServer.ApplicationServices
 {
     public sealed class ServicesManager
 	{
-		public DataProviderService dataProviderService;
+		private readonly DataProviderService dataProviderService;
+		private readonly DataConsumerService dataConsumerService;
 
 		CancellationTokenSource cts = new CancellationTokenSource();
 
 		public ServicesManager()
 		{
 			dataProviderService = new DataProviderService();
+			dataConsumerService = new DataConsumerService();
 		}
 
 		public void StartAllThread()
 		{
 			ThreadPool.QueueUserWorkItem(dataProviderService.MainDataThreadProc, cts.Token);
+			ThreadPool.QueueUserWorkItem(dataConsumerService.MainDataThreadProc, cts.Token);
 		}
 
 		public void StopAllThread()
 		{
 			Global.Logger.Information("StopAllThread");
 
+			dataConsumerService.StopThread = true;
+
 			dataProviderService.StopThread = true;
+			
 
 			cts.Cancel();
 
