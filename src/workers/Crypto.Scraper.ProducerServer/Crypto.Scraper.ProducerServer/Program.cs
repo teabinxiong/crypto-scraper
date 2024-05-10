@@ -1,4 +1,5 @@
 ﻿using Crypto.Scraper.ProducerServer;
+using Crypto.Scraper.ProducerServer.ApplicationServices;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 
@@ -22,5 +23,26 @@ Log.Logger = new LoggerConfiguration()
 	.CreateLogger();
 
 Global.logger = Log.Logger;
+
+var svc = DataProcessingService.New();
+svc.Start();
+
+bool quit = false;
+
+while (!quit)
+{
+	Thread.Sleep(1000);
+	if (Console.KeyAvailable)
+	{
+		ConsoleKeyInfo key = Console.ReadKey();
+		if (key.KeyChar == 'q' || key.KeyChar == 'Q')
+		{
+			Global.logger.Information("Quit Program");
+
+			svc.Stop();
+		}
+	}
+}
+
 
 host.Run();
