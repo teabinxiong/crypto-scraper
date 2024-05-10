@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option csharp_namespace = "CoinDataServiceStream";
+
+package coindata_stream;
+
+// The greeting service definition.
+service CoinData_Stream {
+  // Sends a greeting
+  //rpc SayHello (HelloRequest) returns (HelloReply);
+  rpc GetData (CoinDataStreamRequest) returns (stream CoinDataStreamReply);
+}
+
+// The request message containing the user's name.
+message CoinDataStreamRequest {
+  string name = 1;
+}
+
+// The response message containing the greetings.
+message CoinDataStreamReply {
+  string Port = 1;
+  string Name = 2;
+  string Dt = 3;
+  string Value=4;
+}

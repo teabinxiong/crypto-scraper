@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34723.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crypto.Scaper.ClientApp", "Crypto.Scaper.ClientApp\Crypto.Scaper.ClientApp.csproj", "{96D5C08C-6269-4D8A-9BB6-ABF95E7DF1D9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96D5C08C-6269-4D8A-9BB6-ABF95E7DF1D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96D5C08C-6269-4D8A-9BB6-ABF95E7DF1D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96D5C08C-6269-4D8A-9BB6-ABF95E7DF1D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96D5C08C-6269-4D8A-9BB6-ABF95E7DF1D9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A4F34668-4924-4B01-9DD5-DFFE5B9C557E}
+	EndGlobalSection
+EndGlobal
