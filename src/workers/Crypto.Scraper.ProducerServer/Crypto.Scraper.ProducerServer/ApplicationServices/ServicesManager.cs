@@ -1,5 +1,4 @@
-﻿using Crypto.Scraper.ProducerServer.ApplicationServices.Servics;
-using Crypto.Scraper.ProducerServer.Models;
+﻿using Crypto.Scraper.ProducerServer.ApplicationServices.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,8 +23,8 @@ namespace Crypto.Scraper.ProducerServer.ApplicationServices
 
 		public void StartAllThread()
 		{
-			ThreadPool.QueueUserWorkItem(dataProviderService.MainDataThreadProc, cts.Token);
-			ThreadPool.QueueUserWorkItem(dataConsumerService.MainDataThreadProc, cts.Token);
+			ThreadPool.QueueUserWorkItem(dataProviderService.StartThreadProc, cts.Token);
+			ThreadPool.QueueUserWorkItem(dataConsumerService.StartThreadProc, cts.Token);
 		}
 
 		public void StopAllThread()
@@ -34,7 +33,7 @@ namespace Crypto.Scraper.ProducerServer.ApplicationServices
 
 			dataConsumerService.StopThread = true;
 
-			dataProviderService.StopThread = true;
+			dataProviderService.stopThread = true;
 			
 
 			cts.Cancel();
