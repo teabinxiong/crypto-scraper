@@ -1,4 +1,5 @@
-﻿using Crypto.Scraper.ProducerServer.ApplicationServices.Services;
+﻿using Crypto.Scraper.ProducerServer.ApplicationServices.Models;
+using Crypto.Scraper.ProducerServer.ApplicationServices.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,19 +13,24 @@ namespace Crypto.Scraper.ProducerServer.ApplicationServices
 	{
 		private readonly DataProviderService dataProviderService;
 		private readonly DataConsumerService dataConsumerService;
-
+		private readonly GrpcServerService grpcServerService;
 		CancellationTokenSource cts = new CancellationTokenSource();
 
 		public ServicesManager()
 		{
 			dataProviderService = new DataProviderService();
 			dataConsumerService = new DataConsumerService();
+			grpcServerService = new GrpcServerService();
 		}
 
 		public void StartAllThread()
 		{
 			ThreadPool.QueueUserWorkItem(dataProviderService.StartThreadProc, cts.Token);
-			ThreadPool.QueueUserWorkItem(dataConsumerService.StartThreadProc, cts.Token);
+			//ThreadPool.QueueUserWorkItem(dataConsumerService.StartThreadProc, cts.Token);
+
+			// start 2 Grpc Servers
+			ThreadPool.QueueUserWorkItem(delegate { grpcServerService.StartThreadProc(new GrpcConfigDto("127.0.0.1", 8600, cts.Token)); });
+			ThreadPool.QueueUserWorkItem(delegate { grpcServerService.StartThreadProc(new GrpcConfigDto("127.0.0.1", 8601, cts.Token)); });
 		}
 
 		public void StopAllThread()
