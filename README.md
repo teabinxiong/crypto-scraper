@@ -11,7 +11,7 @@ This repository consists of a **Data Feed Server** and 2 **Data Client App**. Th
 ![image](./img/crypto-scraper-architecture.png)
 
 ## Future Improvement
-1. Add more Scraper Api from different source. Currently only has api from CoinGecko.
+1. Add more crypto price information sources. Currently, only retrieve crypto price information from CoinGecko.
 
 
 ## Projects:
