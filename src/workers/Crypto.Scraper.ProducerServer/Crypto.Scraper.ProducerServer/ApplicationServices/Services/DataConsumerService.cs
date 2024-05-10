@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Crypto.Scraper.ProducerServer.ApplicationServices.Servics.Abstractions;
-using Crypto.Scraper.ProducerServer.Models;
+using Crypto.Scraper.ProducerServer.ApplicationServices.Models;
+using Crypto.Scraper.ProducerServer.ApplicationServices.Services.Abstractions;
 
-namespace Crypto.Scraper.ProducerServer.ApplicationServices.Servics
+namespace Crypto.Scraper.ProducerServer.ApplicationServices.Services
 {
     public sealed class DataConsumerService : WorkerProcess
 	{
 		public bool StopThread = false;
 
-		public override void MainDataThreadProc(object obj)
+		public override void StartThreadProc(object obj)
 		{
 			Global.Logger.Information("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ProcessDataThreadProc runnning");
 			ManualResetEvent completeEvent = new ManualResetEvent(false);

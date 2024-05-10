@@ -1,6 +1,8 @@
 ﻿using Crypto.Scraper.ProducerServer;
 using Crypto.Scraper.ProducerServer.ApplicationServices;
+using Crypto.Scraper.ProducerServer.ApplicationServices.Utilities;
 using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json;
 using Serilog;
 
 var builder = new ConfigurationBuilder();
@@ -23,6 +25,20 @@ Log.Logger = new LoggerConfiguration()
 	.CreateLogger();
 
 Global.Logger = Log.Logger;
+
+var configuration = host.Services.GetRequiredService<IConfiguration>();
+
+Global.CryptoApiKey = configuration.GetValue<String>("CryptoApiKey")??"";
+
+var cryptoDataClient = new CryptoDataClient(Global.BaseUrl, Global.CryptoApiKey);
+
+/*
+Task.Run(async () =>
+{  
+	var apiResult =  cryptoDataClient.GetSimplePriceAsync("bitcoin,binance-peg-xrp", "myr", "full").GetAwaiter().GetResult();
+	Global.Logger.Information(JsonConvert.SerializeObject(apiResult));
+});
+*/
 
 var svc = new BackgroudService();
 svc.Start();
