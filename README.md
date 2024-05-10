@@ -1,5 +1,5 @@
 # crypto-scraper
-A Crypto Scraper written in .NET Core, Technologies used in this project, Worker Services, gRPC, Multi-Threading.
+A Simple Crypto Scraper written in .NET Core, Technologies used in this project, Worker Services, gRPC, Multi-Threading.
 
 ## Author
 Tea Binxiong
@@ -12,6 +12,7 @@ This repository consists of a **Data Feed Server** and 2 **Data Client App**. Th
 
 ## Future Improvement
 1. Add more Scraper Api from different source. Currently only has api from CoinGecko.
+
 
 ## Projects:
 1) Server Project 1 - Crypto.Scraper.DataFeedServer
