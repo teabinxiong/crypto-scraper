@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Crypto.Scraper.ProducerServer": {
+      "commandName": "Project",
+      "environmentVariables": {
+      }
+    }
+  }
+}
