@@ -5,13 +5,15 @@ A Crypto Scraper written in .NET Core, Technologies used in this project, Worker
 Tea Binxiong
 
 ## Description
-This repository consists of a **Data Producer Service** and a **Data Client Service** The Data Producer Service scrapes specific crypto details from the Gecko API and stores them inside a queue. The **Data Client Service** then retrieves the crypto details from **Data Producer Service** via the **gRPC** protocol.
+This repository consists of a **Data Feed Server** and 2 **Data Client App**. The ***Data Feed Server** scrapes specific crypto details from the CoinGecko API and stores them inside a queue. The **Data Client Service** then retrieves the crypto details from **Data Producer Service** via the **gRPC** protocol.
+
+## Future Improvement
+1. Add more Scraper clients from different source. Currently only has CoinGecko.
 
 ## Projects:
 1) Server Project 1 - Crypto.Scraper.DataFeedServer
 2) Client Console App 1 - Crypto.Scraper.ClientApp
 3) Client Console App 2 - Crypto.Scraper.ClientApp
-
 
 
 ## Architecture Diagram
