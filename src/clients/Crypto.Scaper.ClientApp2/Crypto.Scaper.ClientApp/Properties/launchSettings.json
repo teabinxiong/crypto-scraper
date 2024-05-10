@@ -1,0 +1,11 @@
+﻿{
+  "profiles": {
+    "Crypto.Scaper.ClientApp": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
