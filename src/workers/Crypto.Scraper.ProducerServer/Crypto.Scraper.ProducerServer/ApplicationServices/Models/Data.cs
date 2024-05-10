@@ -13,6 +13,10 @@ namespace Crypto.Scraper.ProducerServer.ApplicationServices.Models
 
         public decimal Value { get; set; }
 
+        public Data()
+        {
+            
+        }
 
         public override string ToString()
         {
