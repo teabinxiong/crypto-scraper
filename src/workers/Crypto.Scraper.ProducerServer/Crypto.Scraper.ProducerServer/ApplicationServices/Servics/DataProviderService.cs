@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Crypto.Scraper.ProducerServer.Models;
+using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,10 +29,27 @@ namespace Crypto.Scraper.ProducerServer.ApplicationServices.Servics
         {
             Global.Logger.Information("Task Processing Started.");
 
-            // run tasks here
+            var key = "key1";
+            var data = new Data()
+            {
+                Name = "Name 1"
+            };
 
-            // stop processing if receive signal to stop
-            if (StopThread)
+			// run tasks here
+			if (!Global.DataQueue.ContainsKey(key))
+			{
+				Global.DataQueue.TryAdd(key, new BlockingCollection<Data>());
+			}
+
+			while (!Global.DataQueue[key].TryAdd(data, 500))
+			{
+				Thread.Sleep(500);
+
+				Global.Logger.Information("waiting to add Data");
+			}
+
+			// stop processing if receive signal to stop
+			if (StopThread)
             {
                 timer.Stop();
                 completeEvent.Set();
