@@ -7,8 +7,11 @@ Tea Binxiong
 ## Description
 This repository consists of a **Data Feed Server** and 2 **Data Client App**. The ***Data Feed Server** scrapes specific crypto details from the CoinGecko API and stores them inside a queue. The **Data Client Service** then retrieves the crypto details from **Data Producer Service** via the **gRPC** protocol.
 
+## Architecture Diagram
+![image](https://github.com/teabinxiong/crypto-scraper/img/crypto-scraper-architecture.png)
+
 ## Future Improvement
-1. Add more Scraper clients from different source. Currently only has CoinGecko.
+1. Add more Scraper Api from different source. Currently only has api from CoinGecko.
 
 ## Projects:
 1) Server Project 1 - Crypto.Scraper.DataFeedServer
@@ -38,7 +41,7 @@ This repository consists of a **Data Feed Server** and 2 **Data Client App**. Th
   ```
 
 ## Repository URL
-[crypto-scraper]([https://github.com/teabinxiong/dotnet-result-pattern](https://github.com/teabinxiong/crypto-scraper))
+[crypto-scraper](https://github.com/teabinxiong/crypto-scraper)
 
 
 
