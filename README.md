@@ -30,6 +30,10 @@ This repository consists of a **Data Producer Service** and a **Data Client Serv
   ```
   dotnet run
   ```
+- Step 4: Navigate to the Crypto.Scraper.ClientApp2 folder in the command line and then run the project by entering the following command:
+  ```
+  dotnet run
+  ```
 
 ## Repository URL
 [crypto-scraper]([https://github.com/teabinxiong/dotnet-result-pattern](https://github.com/teabinxiong/crypto-scraper))
