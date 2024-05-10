@@ -22,9 +22,9 @@ Log.Logger = new LoggerConfiguration()
 	.MinimumLevel.Verbose()
 	.CreateLogger();
 
-Global.logger = Log.Logger;
+Global.Logger = Log.Logger;
 
-var svc = DataProcessingService.New();
+var svc = new BackgroudService();
 svc.Start();
 
 bool quit = false;
@@ -37,7 +37,7 @@ while (!quit)
 		ConsoleKeyInfo key = Console.ReadKey();
 		if (key.KeyChar == 'q' || key.KeyChar == 'Q')
 		{
-			Global.logger.Information("Quit Program");
+			Global.Logger.Information("Quit Program");
 
 			svc.Stop();
 		}

@@ -8,6 +8,8 @@ namespace Crypto.Scraper.ProducerServer
 {
 	public class Global
 	{
-		public static Serilog.ILogger logger;
+		public static Serilog.ILogger Logger;
+
+		public static List<ManualResetEvent> ThreadCompleteEvents = new List<ManualResetEvent>();
 	}
 }
