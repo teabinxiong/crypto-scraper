@@ -14,12 +14,11 @@ namespace Crypto.Scraper.ProducerServer.ApplicationServices.Services
 {
     public class DataProviderService: WorkerProcess
 	{
-        public bool stopThread = false;
-        ManualResetEvent completeEvent = new ManualResetEvent(false);
         System.Timers.Timer timer = new System.Timers.Timer();
 
         public override void StartThreadProc(object obj)
         {
+			 ManualResetEvent completeEvent = new ManualResetEvent(false);
             Global.ThreadCompleteEvents.Add(completeEvent);
 
             timer.Enabled = true;
@@ -49,7 +48,7 @@ namespace Crypto.Scraper.ProducerServer.ApplicationServices.Services
 				coin.Value = (decimal)item.Value.myr;
 				coin.Date = unixTime;
 
-				if (stopThread)
+				if (IsThreadStopped())
 				{
 					timer.Stop();
 					completeEvent.Set();
