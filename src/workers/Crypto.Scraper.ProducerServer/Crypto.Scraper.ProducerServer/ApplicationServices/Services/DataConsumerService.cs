@@ -19,7 +19,7 @@ namespace Crypto.Scraper.ProducerServer.ApplicationServices.Services
 
 			Global.ThreadCompleteEvents.Add(completeEvent);
 
-			var key = "key1";
+			var key = "bitcoin";
 			Data data;
 			while (!StopThread)
 			{
