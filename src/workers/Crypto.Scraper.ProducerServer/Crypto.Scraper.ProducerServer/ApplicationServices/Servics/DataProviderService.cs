@@ -1,4 +1,5 @@
-﻿using Crypto.Scraper.ProducerServer.Models;
+﻿using Crypto.Scraper.ProducerServer.ApplicationServices.Servics.Abstractions;
+using Crypto.Scraper.ProducerServer.Models;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -9,13 +10,13 @@ using System.Timers;
 
 namespace Crypto.Scraper.ProducerServer.ApplicationServices.Servics
 {
-    public class DataProviderService
-    {
+    public class DataProviderService: WorkerProcess
+	{
         public bool StopThread = false;
         ManualResetEvent completeEvent = new ManualResetEvent(false);
         System.Timers.Timer timer = new System.Timers.Timer();
 
-        public void MainDataThreadProc(object obj)
+        public override void MainDataThreadProc(object obj)
         {
             Global.ThreadCompleteEvents.Add(completeEvent);
 
