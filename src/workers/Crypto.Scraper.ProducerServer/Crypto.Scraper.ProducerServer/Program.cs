@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Hosting;
+﻿using Crypto.Scraper.ProducerServer;
+using Microsoft.Extensions.Hosting;
 using Serilog;
 
 var builder = new ConfigurationBuilder();
@@ -19,5 +20,7 @@ Log.Logger = new LoggerConfiguration()
 	//.Enrich.FromLogContext()
 	.MinimumLevel.Verbose()
 	.CreateLogger();
+
+Global.logger = Log.Logger;
 
 host.Run();
