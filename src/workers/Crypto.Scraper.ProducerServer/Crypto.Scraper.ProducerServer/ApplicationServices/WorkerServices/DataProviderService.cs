@@ -22,7 +22,7 @@ namespace Crypto.Scraper.ProducerServer.ApplicationServices.Services
             Global.ThreadCompleteEvents.Add(completeEvent);
 
             timer.Enabled = true;
-            timer.Interval = 10000;
+            timer.Interval = 20000;
             timer.Elapsed += Timer_Elapsed;
             timer.Start();
         }

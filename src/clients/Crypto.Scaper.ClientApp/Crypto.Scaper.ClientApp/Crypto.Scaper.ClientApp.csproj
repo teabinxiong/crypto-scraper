@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>dotnet-Crypto.Scaper.ClientApp-64c4e5e6-a438-4c8d-b89b-c619b66ec0b6</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+	  <PackageReference Include="Google.Protobuf" Version="3.22.1" />
+	  <PackageReference Include="Grpc.Net.Client" Version="2.52.0" />
+	  <PackageReference Include="Grpc.Tools" Version="2.53.0">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	  </PackageReference>
+	  <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
+	  <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="7.0.0" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<Protobuf Include="Protos\coindata_stream.proto" GrpcServices="Client" />
+	</ItemGroup>
+</Project>

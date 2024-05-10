@@ -1,6 +1,8 @@
 ﻿using Crypto.Scraper.ProducerServer;
 using Crypto.Scraper.ProducerServer.ApplicationServices;
 using Crypto.Scraper.ProducerServer.ApplicationServices.Utilities;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
 using Serilog;
