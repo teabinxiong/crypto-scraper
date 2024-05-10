@@ -10,18 +10,16 @@ namespace Crypto.Scraper.ProducerServer.ApplicationServices.Services
 {
     public sealed class DataConsumerService : WorkerProcess
 	{
-		public bool StopThread = false;
 
 		public override void StartThreadProc(object obj)
 		{
 			Global.Logger.Information("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ProcessDataThreadProc runnning");
-			ManualResetEvent completeEvent = new ManualResetEvent(false);
 
 			Global.ThreadCompleteEvents.Add(completeEvent);
 
 			var key = "bitcoin";
 			Data data;
-			while (!StopThread)
+			while (!IsThreadStopped())
 			{
 				if (!Global.DataQueue.ContainsKey(key))
 				{
@@ -32,7 +30,7 @@ namespace Crypto.Scraper.ProducerServer.ApplicationServices.Services
 				while (!Global.DataQueue[key].TryTake(out data, 500))
 				{
 					Thread.Sleep(500);
-					if (StopThread)
+					if (IsThreadStopped())
 					{
 						Global.Logger.Information("ProcessDataThreadProc exiting");
 						completeEvent.Set();

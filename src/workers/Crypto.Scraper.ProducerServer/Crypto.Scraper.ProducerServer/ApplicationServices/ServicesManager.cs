@@ -31,10 +31,9 @@ namespace Crypto.Scraper.ProducerServer.ApplicationServices
 		{
 			Global.Logger.Information("StopAllThread");
 
-			dataConsumerService.StopThread = true;
+			dataConsumerService.StopThread();
 
-			dataProviderService.stopThread = true;
-			
+			dataProviderService.StopThread();
 
 			cts.Cancel();
 
@@ -46,7 +45,6 @@ namespace Crypto.Scraper.ProducerServer.ApplicationServices
 			}
 
 			Global.Logger.Information("Gracfully shutdown");
-
 		}
 	}
 }
